@@ -1,0 +1,387 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>102 Etiquetas HTML</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    color: #263445;
+}
+
+header {
+    background: #12304a;
+    color: white;
+    text-align: center;
+    padding: 35px 15px;
+}
+
+header h1 { margin-top: 0; }
+
+header p { line-height: 1.6; }
+
+main {
+    max-width: 1400px;
+    margin: 25px auto;
+    padding: 0 15px;
+}
+
+.resumen {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #b7c5d1;
+    border-radius: 7px;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+button {
+    background: #12304a;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 11px 16px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+button:hover { background: #176b87; }
+
+.tabla-contenedor {
+    overflow-x: auto;
+    background: white;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    min-width: 1050px;
+    border-collapse: collapse;
+}
+
+th {
+    background: #176b87;
+    color: white;
+    padding: 14px;
+    text-align: left;
+}
+
+td {
+    padding: 13px;
+    border-bottom: 1px solid #dce4eb;
+    vertical-align: top;
+    line-height: 1.5;
+}
+
+tbody tr:nth-child(even) { background: #f2f7fa; }
+
+tbody tr:hover { background: #e2f2f7; }
+
+.etiqueta {
+    color: #075b7a;
+    font-weight: bold;
+    background: #e1f2f8;
+    padding: 5px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    background: #eef2f6;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0;
+    max-width: 400px;
+}
+
+code {
+    font-family: Consolas, monospace;
+    font-size: 13px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #526575;
+}
+
+@media print {
+    input, button { display: none; }
+    body { background: white; }
+    main { max-width: 100%; }
+    table { min-width: 0; font-size: 9px; }
+    th, td { padding: 5px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Catálogo de 102 Etiquetas HTML</h1>
+    <p>
+        Guía educativa de etiquetas HTML con numeración,
+        descripción, ejemplo de uso y elementos adicionales.
+    </p>
+    <p>Asignatura: Informática</p>
+</header>
+
+<main>
+
+    <div class="resumen">
+        <h2>Guía de referencia HTML</h2>
+        <p>
+            Esta página presenta 102 nombres de etiquetas HTML,
+            incluyendo etiquetas modernas y algunas obsoletas
+            identificadas como tales.
+        </p>
+        <p><strong>Total de registros:</strong> 102</p>
+    </div>
+
+    <input
+        type="search"
+        id="buscador"
+        placeholder="Buscar por nombre, descripción o ejemplo..."
+        aria-label="Buscar etiquetas HTML"
+    >
+
+    <button onclick="window.print()">
+        Imprimir o guardar en PDF
+    </button>
+
+    <p id="contador">Mostrando 102 etiquetas.</p>
+
+    <div class="tabla-contenedor">
+        <table>
+            <thead>
+                <tr>
+                    <th>Número</th>
+                    <th>Nombre de la etiqueta</th>
+                    <th>Descripción</th>
+                    <th>Ejemplo de uso</th>
+                    <th>Elemento adicional</th>
+                </tr>
+            </thead>
+            <tbody id="contenido"></tbody>
+        </table>
+    </div>
+
+</main>
+
+<footer>
+    <p>Catálogo educativo de HTML | 2026</p>
+</footer>
+
+<script>
+const datos = `
+a|Define un hipervínculo hacia otra página o recurso.|<a href="https://example.com">Visitar página</a>|El atributo href indica el destino. target="_blank" abre otra pestaña.
+abbr|Representa una abreviatura o sigla.|<abbr title="Universidad Autónoma de Santo Domingo">UASD</abbr>|El atributo title permite indicar el significado completo.
+address|Contiene información de contacto del autor o responsable.|<address>correo@example.com</address>|Puede incluir información de contacto relacionada con una página.
+area|Define una zona interactiva dentro de un mapa de imagen.|<area shape="rect" coords="0,0,100,80" href="zona.html" alt="Zona">|Se utiliza dentro de map.
+article|Representa contenido independiente, como una noticia.|<article><h2>Noticia</h2><p>Contenido</p></article>|Puede tener sentido por sí solo.
+aside|Contiene información complementaria.|<aside><p>Información relacionada</p></aside>|Se puede utilizar para una barra lateral.
+audio|Inserta contenido de audio.|<audio controls src="audio.mp3">Audio no disponible</audio>|controls muestra los controles del reproductor.
+b|Llama la atención sobre un texto sin añadir importancia semántica.|<b>Palabra clave</b>|Para indicar importancia se recomienda strong.
+base|Establece la dirección base de las URL relativas.|<base href="https://example.com/">|Se coloca dentro de head.
+bdi|Aísla texto cuya dirección puede diferir de la del resto.|<bdi>اسم المستخدم</bdi>|Ayuda con textos de distintos sistemas de escritura.
+bdo|Fuerza la dirección de escritura del texto.|<bdo dir="rtl">Texto</bdo>|dir puede ser rtl o ltr.
+blockquote|Representa una cita extensa.|<blockquote><p>Una cita textual.</p></blockquote>|Puede incluir el atributo cite con la fuente.
+body|Contiene el contenido principal del documento.|<body><h1>Hola</h1></body>|Normalmente existe un solo body.
+br|Inserta un salto de línea.|Primera línea<br>Segunda línea|No necesita etiqueta de cierre.
+button|Crea un botón interactivo.|<button type="button">Presionar</button>|Puede ejecutar acciones o enviar formularios.
+canvas|Crea un área de dibujo controlada mediante JavaScript.|<canvas id="lienzo" width="200" height="100"></canvas>|Se utiliza para gráficos y animaciones.
+caption|Añade un título a una tabla.|<table><caption>Calificaciones</caption></table>|Se coloca dentro de table.
+cite|Representa el título de una obra creativa.|<cite>Don Quijote de la Mancha</cite>|Se usa para títulos de obras.
+code|Representa un fragmento de código informático.|<code>console.log("Hola")</code>|Puede combinarse con pre para bloques de código.
+col|Define propiedades para una o varias columnas.|<col span="2">|Se coloca dentro de colgroup.
+colgroup|Agrupa columnas de una tabla.|<colgroup><col span="2"></colgroup>|Permite definir propiedades para columnas.
+data|Asocia un contenido visible con un valor legible por máquina.|<data value="123">Producto A</data>|El atributo value contiene el valor asociado.
+datalist|Proporciona sugerencias para un campo de entrada.|<input list="frutas"><datalist id="frutas"><option value="Mango"></datalist>|Se vincula con input mediante list.
+dd|Describe un término de una lista de descripción.|<dl><dt>HTML</dt><dd>Lenguaje de marcado</dd></dl>|Se utiliza dentro de dl.
+del|Marca contenido eliminado de un documento.|<del>Precio anterior</del>|Puede incluir cite y datetime.
+details|Crea un panel que se puede abrir y cerrar.|<details><summary>Ver más</summary><p>Información</p></details>|summary define el encabezado interactivo.
+dfn|Marca un término que se está definiendo.|<dfn>HTML</dfn> es un lenguaje de marcado.|Se usa en una definición contextual.
+dialog|Representa un cuadro de diálogo.|<dialog open>Mensaje informativo</dialog>|JavaScript puede abrirlo con showModal().
+div|Agrupa contenido en un contenedor genérico.|<div class="tarjeta">Contenido</div>|Se utiliza para organizar contenido y aplicar estilos.
+dl|Crea una lista de términos y descripciones.|<dl><dt>CSS</dt><dd>Estilos</dd></dl>|Contiene elementos dt y dd.
+dt|Indica un término dentro de una lista de descripción.|<dt>CPU</dt>|Se utiliza dentro de dl.
+em|Marca texto con énfasis.|<em>Muy importante</em>|Normalmente se muestra en cursiva.
+embed|Incrusta contenido externo compatible.|<embed src="archivo.pdf" type="application/pdf">|Su compatibilidad depende del navegador.
+fieldset|Agrupa controles relacionados de un formulario.|<fieldset><legend>Datos personales</legend></fieldset>|Puede contener legend.
+figcaption|Añade una leyenda a una figura.|<figcaption>Descripción de la imagen</figcaption>|Se coloca dentro de figure.
+figure|Agrupa contenido independiente como imágenes o diagramas.|<figure><img src="foto.jpg" alt="Paisaje"><figcaption>Paisaje</figcaption></figure>|Puede incluir figcaption.
+footer|Representa el pie de una página o sección.|<footer>© 2026 Mi sitio</footer>|Puede contener información legal o de autoría.
+form|Crea un formulario para recopilar datos.|<form action="/enviar" method="post"><input name="nombre"><button>Enviar</button></form>|action indica el destino y method el método de envío.
+h1|Define un encabezado de nivel principal.|<h1>Mi página</h1>|Es el nivel de encabezado superior.
+h2|Define un encabezado de segundo nivel.|<h2>Sección principal</h2>|Se utiliza para dividir secciones.
+h3|Define un encabezado de tercer nivel.|<h3>Subsección</h3>|Representa una subsección.
+h4|Define un encabezado de cuarto nivel.|<h4>Detalle</h4>|Debe respetar la jerarquía del documento.
+h5|Define un encabezado de quinto nivel.|<h5>Subtema</h5>|Es un nivel inferior a h4.
+h6|Define un encabezado de sexto nivel.|<h6>Detalle menor</h6>|Es el nivel de encabezado más bajo.
+head|Contiene metadatos y recursos del documento.|<head><title>Mi sitio</title></head>|Incluye title, meta, link y otros recursos.
+header|Representa el encabezado de una página o sección.|<header><h1>Mi sitio</h1></header>|Puede contener títulos y navegación.
+hgroup|Agrupa un encabezado con texto secundario relacionado.|<hgroup><h1>HTML</h1><p>Guía básica</p></hgroup>|Puede agrupar un título y su subtítulo.
+hr|Representa una separación temática.|<p>Tema uno</p><hr><p>Tema dos</p>|Generalmente se muestra como una línea horizontal.
+html|Es el elemento raíz del documento HTML.|<html lang="es">...</html>|lang identifica el idioma principal.
+i|Representa texto en una voz o estado alternativo.|<i>software</i>|No debe usarse únicamente para decorar.
+iframe|Inserta otra página dentro de la actual.|<iframe src="https://example.com" title="Ejemplo"></iframe>|Incluye un título descriptivo.
+img|Inserta una imagen en la página.|<img src="foto.jpg" alt="Paisaje">|alt mejora la accesibilidad; no tiene cierre.
+input|Crea un control de entrada de datos.|<input type="email" name="correo" required>|type define el tipo de control.
+ins|Marca contenido añadido al documento.|<ins>Texto agregado</ins>|Puede incluir datetime.
+kbd|Representa una entrada realizada por teclado.|<kbd>Ctrl</kbd> + <kbd>S</kbd>|Se usa para mostrar teclas o instrucciones.
+label|Asocia una descripción con un control de formulario.|<label for="nombre">Nombre</label><input id="nombre">|for debe coincidir con el id del control.
+legend|Define el título de un grupo fieldset.|<legend>Datos de contacto</legend>|Ayuda a identificar un grupo de controles.
+li|Define un elemento de una lista.|<li>HTML</li>|Se utiliza dentro de ul, ol o menu.
+link|Relaciona el documento con un recurso externo.|<link rel="stylesheet" href="estilos.css">|Normalmente se coloca en head.
+main|Contiene el contenido principal de la página.|<main><h1>Contenido principal</h1></main>|Normalmente debe existir un solo main visible.
+map|Define un mapa de imagen con áreas interactivas.|<map name="mapa"><area shape="rect" coords="0,0,80,80" href="zona.html" alt="Zona"></map>|Se relaciona con img mediante usemap.
+mark|Resalta texto relevante.|<mark>HTML</mark>|Normalmente se muestra con fondo resaltado.
+menu|Representa una lista de elementos o comandos.|<menu><li>Guardar</li></menu>|Puede agrupar comandos.
+meta|Define metadatos del documento.|<meta charset="UTF-8">|También se utiliza para viewport y descripción.
+meter|Muestra una medida dentro de un rango conocido.|<meter min="0" max="100" value="75">75%</meter>|Para una tarea en progreso se recomienda progress.
+nav|Agrupa enlaces de navegación importantes.|<nav><a href="index.html">Inicio</a></nav>|Ayuda a identificar las áreas de navegación.
+noscript|Muestra contenido alternativo cuando JavaScript no está disponible.|<noscript>JavaScript no está disponible.</noscript>|El contenido depende de la configuración del navegador.
+object|Incrusta un recurso externo compatible.|<object data="documento.pdf" type="application/pdf">Abrir PDF</object>|Puede incluir contenido alternativo.
+ol|Crea una lista ordenada.|<ol><li>Primero</li><li>Segundo</li></ol>|El atributo start permite cambiar el número inicial.
+optgroup|Agrupa opciones relacionadas dentro de select.|<optgroup label="Frutas"><option>Mango</option></optgroup>|El atributo label identifica el grupo.
+option|Define una opción seleccionable.|<option value="rd">República Dominicana</option>|value indica el valor de la opción.
+output|Muestra el resultado de un cálculo o acción.|<output name="resultado">10</output>|Puede actualizarse con JavaScript.
+p|Define un párrafo de texto.|<p>Este es un párrafo.</p>|Puede contener texto y elementos en línea.
+picture|Permite elegir imágenes según las condiciones del dispositivo.|<picture><source media="(max-width:600px)" srcset="movil.jpg"><img src="foto.jpg" alt="Paisaje"></picture>|Debe contener un img como alternativa.
+pre|Conserva espacios y saltos de línea del texto.|<pre>Primera línea\nSegunda línea</pre>|Es útil para mostrar código.
+progress|Representa el progreso de una tarea.|<progress value="60" max="100">60%</progress>|Sin value puede representar progreso indeterminado.
+q|Marca una cita breve dentro de un párrafo.|<q>Hola a todos</q>|El navegador suele añadir comillas.
+rp|Define paréntesis alternativos para anotaciones ruby.|<ruby>漢<rp>(</rp><rt>kan</rt><rp>)</rp></ruby>|Se usa con ruby y rt.
+rt|Define una anotación o pronunciación ruby.|<ruby>漢<rt>kan</rt></ruby>|Se utiliza en guías de pronunciación.
+ruby|Representa anotaciones de pronunciación.|<ruby>漢<rt>kan</rt></ruby>|Es útil en algunos idiomas asiáticos.
+s|Marca contenido que ya no es exacto o relevante.|<s>Precio anterior: RD$500</s>|Para contenido eliminado editorialmente se usa del.
+samp|Representa la salida de un programa informático.|<samp>Operación correcta</samp>|Suele mostrarse con fuente monoespaciada.
+script|Incluye o enlaza código JavaScript.|<script src="app.js" defer></script>|defer permite ejecutar el archivo después del análisis HTML.
+search|Representa una sección de búsqueda o filtrado.|<search><input type="search" placeholder="Buscar"></search>|Identifica semánticamente una región de búsqueda.
+section|Agrupa contenido temáticamente relacionado.|<section><h2>Servicios</h2><p>Descripción</p></section>|Conviene incluir un encabezado.
+select|Crea una lista de opciones seleccionables.|<select><option>Mango</option></select>|Puede contener option y optgroup.
+slot|Define un espacio de inserción en un componente web.|<slot name="titulo">Título predeterminado</slot>|Se usa con Web Components.
+small|Representa notas o comentarios secundarios.|<small>© 2026 Derechos reservados</small>|No debe utilizarse solo para reducir el tamaño visual.
+source|Proporciona un recurso alternativo para contenido multimedia.|<video controls><source src="video.mp4" type="video/mp4"></video>|Se usa en video, audio y picture.
+span|Agrupa texto en línea sin significado semántico propio.|<span class="activo">Activo</span>|Es útil para estilos y JavaScript.
+strong|Indica importancia especial en el texto.|<strong>Atención:</strong> revise los datos.|Suele mostrarse en negrita.
+style|Incluye reglas CSS dentro del documento.|<style>p { color: navy; }</style>|Normalmente se coloca en head.
+sub|Muestra texto como subíndice.|H<sub>2</sub>O|Se usa en fórmulas químicas.
+summary|Define el encabezado visible de details.|<details><summary>Información</summary></details>|Debe ser el primer hijo de details.
+sup|Muestra texto como superíndice.|2<sup>3</sup> = 8|Se usa en potencias y notas.
+table|Crea una tabla de datos.|<table><tr><th>Nombre</th></tr><tr><td>Ana</td></tr></table>|Se recomienda para datos tabulares.
+tbody|Agrupa las filas del cuerpo de una tabla.|<tbody><tr><td>Dato</td></tr></tbody>|Separa las filas de datos de los encabezados.
+td|Define una celda de datos de una tabla.|<tr><td>Eduard</td></tr>|Puede usar colspan y rowspan.
+template|Guarda contenido HTML que no se muestra inicialmente.|<template id="tarjeta"><p>Nueva tarjeta</p></template>|JavaScript puede clonar su contenido.
+textarea|Crea un campo de texto de varias líneas.|<textarea name="comentario" rows="4"></textarea>|rows define el número inicial de líneas.
+tfoot|Agrupa las filas de resumen de una tabla.|<tfoot><tr><td>Total</td><td>100</td></tr></tfoot>|Puede contener totales o resúmenes.
+th|Define una celda de encabezado de tabla.|<th scope="col">Nombre</th>|scope mejora la relación entre encabezados y celdas.
+thead|Agrupa las filas de encabezado de una tabla.|<thead><tr><th>Nombre</th></tr></thead>|Mejora la estructura de la tabla.
+time|Representa una fecha u hora legible por máquina.|<time datetime="2026-10-14">14 de octubre de 2026</time>|datetime permite normalizar el valor.
+title|Define el título que aparece en la pestaña del navegador.|<title>Mi página web</title>|Se coloca dentro de head.
+tr|Define una fila de una tabla.|<tr><td>Ana</td><td>20</td></tr>|Contiene celdas th o td.
+track|Añade subtítulos a contenido multimedia.|<track kind="subtitles" src="subtitulos.vtt" srclang="es" label="Español">|Puede utilizar archivos WebVTT.
+u|Marca texto con una anotación no textual.|<u>Texto anotado</u>|No debe usarse solo para simular enlaces.
+ul|Crea una lista sin orden numérico.|<ul><li>HTML</li><li>CSS</li></ul>|Sus elementos se crean con li.
+var|Representa una variable matemática o de programación.|<var>x</var> = 5|Normalmente se muestra en cursiva.
+video|Inserta un reproductor de video.|<video controls width="320"><source src="video.mp4" type="video/mp4"></video>|controls muestra los controles del reproductor.
+wbr|Indica un posible punto de salto de línea.|supercalifragilistico<wbr>expialidoso|Permite saltos de línea en palabras largas.
+acronym|Etiqueta obsoleta que representaba acrónimos.|<acronym title="World Wide Web">WWW</acronym>|Obsoleta; se recomienda abbr.
+applet|Etiqueta obsoleta que insertaba programas Java.|<applet code="Programa.class" width="200" height="100">Alternativa</applet>|No se recomienda en HTML moderno.
+big|Etiqueta obsoleta que mostraba texto más grande.|<big>Texto grande</big>|Obsoleta; utiliza CSS.
+center|Etiqueta obsoleta que centraba contenido.|<center>Texto centrado</center>|Obsoleta; utiliza CSS text-align.
+dir|Etiqueta obsoleta para listas de directorio.|<dir><li>Archivo</li></dir>|Obsoleta; se recomienda ul.
+font|Etiqueta obsoleta para configurar fuente, color y tamaño.|<font color="red">Texto rojo</font>|Obsoleta; utiliza CSS.
+frame|Etiqueta obsoleta que definía un marco de página.|<frame src="pagina.html">|Obsoleta; no se utiliza en HTML moderno.
+frameset|Etiqueta obsoleta que organizaba marcos de página.|<frameset cols="50%,50%"><frame src="a.html"><frame src="b.html"></frameset>|Obsoleta; utiliza CSS y otras alternativas modernas.
+marquee|Etiqueta no estándar que desplazaba texto automáticamente.|<marquee>Texto en movimiento</marquee>|No se recomienda por accesibilidad.
+noframes|Etiqueta obsoleta con contenido alternativo para marcos.|<noframes>Contenido alternativo</noframes>|Relacionada con frameset.
+strike|Etiqueta obsoleta que tachaba texto.|<strike>Texto tachado</strike>|Obsoleta; utiliza s o del según el significado.
+tt|Etiqueta obsoleta para texto monoespaciado.|<tt>Texto de máquina</tt>|Obsoleta; utiliza code o CSS.
+xmp|Etiqueta obsoleta que mostraba texto como código literal.|<xmp><p>Texto literal</p></xmp>|Obsoleta; utiliza pre y code.
+`;
+
+const filas = datos.trim().split("\n");
+
+const cuerpo = document.getElementById("contenido");
+
+filas.forEach((fila, indice) => {
+    const [nombre, descripcion, ejemplo, adicional] = fila.split("|");
+
+    const tr = document.createElement("tr");
+
+    const valores = [
+        indice + 1,
+        "<" + nombre + ">",
+        descripcion,
+        ejemplo,
+        adicional
+    ];
+
+    valores.forEach((valor, columna) => {
+        const td = document.createElement("td");
+
+        if (columna === 0) {
+            td.textContent = valor;
+        } else if (columna === 1) {
+            const etiqueta = document.createElement("span");
+            etiqueta.className = "etiqueta";
+            etiqueta.textContent = valor;
+            td.appendChild(etiqueta);
+        } else if (columna === 3) {
+            const pre = document.createElement("pre");
+            const code = document.createElement("code");
+            code.textContent = valor;
+            pre.appendChild(code);
+            td.appendChild(pre);
+        } else {
+            td.textContent = valor;
+        }
+
+        tr.appendChild(td);
+    });
+
+    cuerpo.appendChild(tr);
+});
+
+const buscador = document.getElementById("buscador");
+const contador = document.getElementById("contador");
+
+buscador.addEventListener("input", function() {
+    const texto = buscador.value.toLowerCase().trim();
+    const filasTabla = cuerpo.querySelectorAll("tr");
+    let visibles = 0;
+
+    filasTabla.forEach(function(fila) {
+        const coincide = fila.textContent.toLowerCase().includes(texto);
+        fila.style.display = coincide ? "" : "none";
+
+        if (coincide) {
+            visibles++;
+        }
+    });
+
+    contador.textContent =
+        "Mostrando " + visibles + " de " + filasTabla.length + " etiquetas.";
+});
+</script>
+
+</body>
+</html>
+```
